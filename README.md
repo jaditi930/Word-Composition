@@ -17,7 +17,11 @@ The program proceeds as follows:
 
 2. The words are stored in a vector and then inserted into the trie for efficient searching.
 
-3. It iterates over the list of words, and for each word, it checks if the word is compounded. A word is considered compounded if it can be formed by concatenating other words from the list.
+3. It iterates over the list of words, and for each word, it checks if the word is compounded.
+      * A word is considered compounded if it can be formed by concatenating other words from the list or
+if it can be broken down into substrings present in the trie.
+      * The program uses a recursive function isCompounded(Trie tr,string word) that finds every possible substring of the given word one by one.If a substring is present in the trie, it recursively checks for the remaining part of the string.
+      * If the recursive call returns true, then the word is a compounded word return true otherwise return false.
 
 4. The program identifies and keeps track of the longest and second longest compounded words found.
 
@@ -29,15 +33,15 @@ The program proceeds as follows:
      ```bash
    git clone https://github.com/jaditi930/Impledge-Coding-Assesment
    ```
-2. Compile and run the program using a C++ compiler (e.g., g++).
+2. Compile the program using a C++ compiler (e.g., g++).
 
    ```bash
    g++ -o Impledge Coding Assesment Word_Composition.cpp
-   ./Word_Composition
    ```
+3. Now, run the program.
+    ```bash
+    ./Word_Composition
+    ```
+4. Upon running the program, you will be prompted to choose an input file. Enter `1` to execute `Input_01.txt` or `2` to execute `Input_02.txt`.
 
-3. Upon running the program, you will be prompted to choose an input file. Enter `1` to execute `Input_01.txt` or `2` to execute `Input_02.txt`.
-
-4. The program will process the input, identify the longest and second longest compounded words, and display the results, along with the time taken to process the chosen input file.
-
-5. Review the output to see the longest and second longest compounded words.
+5. The program will process the input, identify the longest and second longest compounded words, and display the results, along with the time taken to process the chosen input file.
