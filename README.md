@@ -1,7 +1,7 @@
 # Word Composition
 
 ## Overview
-This C++ program is designed to find the longest and second longest compounded words from a list of words provided in an input file. It utilizes a trie data structure for efficient word storage and searching. The program also measures and displays the execution time for processing the input.
+This C++ program is designed to find the longest and second longest compound words from a list of words provided in an input file. It utilizes a trie data structure for efficient word storage and searching. The program also measures and displays the execution time for processing the input.
 
 ## Code Overview
 
@@ -17,15 +17,14 @@ The program proceeds as follows:
 
 2. The words are stored in a vector and then inserted into the trie for efficient searching.
 
-3. It iterates over the list of words, and for each word, it checks if the word is compounded.
-      * A word is considered compounded if it can be formed by concatenating other words from the list or
-if it can be broken down into substrings present in the trie.
-      * The program uses a recursive function isCompounded(Trie tr,string word) that finds every possible substring of the given word one by one.If a substring is present in the trie, it recursively checks for the remaining part of the string.
-      * If the recursive call returns true, then the word is a compounded word return true otherwise return false.
+3. It iterates over the list of words, and for each word, it checks if the word is compound.
+      * A word is considered Compound if it can be formed by concatenating other words from the input words.
+      * The program uses a recursive function isCompounded(Trie tr,string word) that finds whether a word can broken down into multiple words present in the input list.
+      * If the recursive function returns true, then the word is a compounded word return true otherwise return false.
 
-4. The program identifies and keeps track of the longest and second longest compounded words found.
+4. The program identifies and keeps track of the longest and second longest compound words found.
 
-5. After processing the entire list, it displays the longest compounded word and the second longest compounded word. It also provides the execution time for processing the input.
+5. After processing the entire list, it displays the longest compound word and the second longest compound word. It also provides the execution time for processing the input.
 
 ## Execution Steps
 
@@ -36,12 +35,12 @@ if it can be broken down into substrings present in the trie.
 2. Compile the program using a C++ compiler (e.g., g++).
 
    ```bash
-   g++ -o Impledge Coding Assesment Word_Composition.cpp
+   g++ Word_Composition.cpp -o Word_Composition
    ```
 3. Now, run the program.
     ```bash
-    ./Word_Composition
+    ./Word_Composition.exe
     ```
 4. Upon running the program, you will be prompted to choose an input file. Enter `1` to execute `Input_01.txt` or `2` to execute `Input_02.txt`.
 
-5. The program will process the input, identify the longest and second longest compounded words, and display the results, along with the time taken to process the chosen input file.
+5. The program will process the input, identify the longest and second longest compound words, and display the results, along with the time taken to process the chosen input file.
