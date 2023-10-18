@@ -97,8 +97,8 @@ while (getline(fin, word)) {
 fin.close();
 }
 
-// Recursive function that returns true if the given word is a compounded word and false if it is not
-bool IsCompounded(Trie &tr,string word,int start=0)
+// Recursive function that returns true if the given word is a compound word and false if it is not.
+bool IsCompound(Trie &tr,string word,int start=0)
 {
 
 // if we have reached the end of the string,then return true since empty string is present in the trie.
@@ -115,8 +115,8 @@ for(int end=start+1;end<=word.size();end++)
     continue;
 
     //if the substring from word[start] to word[end-1] is present in the trie and the substring 
-    //from word[end] to word[word.size()-1] is compounded then the word is a compounded word so return true
-    if (tr.search(word.substr(start,end-start))&& IsCompounded(tr,word,end))
+    //from word[end] to word[word.size()-1] is a compound word then the word is a compound word so return true
+    if (tr.search(word.substr(start,end-start))&& IsCompound(tr,word,end))
         return 1;
     }
 
@@ -144,16 +144,16 @@ int main()
     //iterate over the wordList and find the longest and second longest compounded words
     for(auto word:wordsList)
     {
-        if(IsCompounded(tr,word))
+        if(IsCompound(tr,word))
         {   
-            // if the current word is compounded word and its length is greater than the length of longest compounded word
-            // then update the longest and second longest compounded words
+            // if the current word is a compound word and its length is greater than the length of longest compound word
+            // then update the longest and second longest compound words.
             if(word.size()>firstCompWord.size())
             {
                 secondCompWord=firstCompWord;
                 firstCompWord=word;
             }
-            // else if its length is greater than the second longest compounded word, then update it
+            // else if its length is greater than the second longest compound word, then update it.
             else if(word.size()>secondCompWord.size())
             secondCompWord=word;
         }
@@ -162,8 +162,8 @@ int main()
     stop = clock();
 
     //Print the result
-    cout<<"Longest Compounded Word : "<<firstCompWord<<endl;
-    cout<<"Second Longest Compounded Word is : "<<secondCompWord<<endl;
+    cout<<"Longest Compound Word : "<<firstCompWord<<endl;
+    cout<<"Second Longest Compound Word is : "<<secondCompWord<<endl;
     cout<<"Time taken to process file Input_0"<<choice<<".txt : "<<double(stop - start)<<" milliseconds"<<endl;
     return 0;
 }
